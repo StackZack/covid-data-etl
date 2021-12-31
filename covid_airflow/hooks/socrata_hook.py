@@ -6,6 +6,7 @@ class SocrateHook(BaseHook):
     """Custom hook that returns a Socrata connection instance.
     Requires connection in Airflow with name of SOCRATA_CONN value.
     """
+
     SOCRATA_CONN = "http_socrata"
 
     def get_conn(self):
