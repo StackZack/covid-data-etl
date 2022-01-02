@@ -9,7 +9,7 @@ class SocrataHook(BaseHook):
 
     SOCRATA_CONN = "http_socrata"
 
-    def __init__(self, *, socrata_conn_id: str = SOCRATA_CONN, **kwargs):
+    def __init__(self, socrata_conn_id: str = SOCRATA_CONN, **kwargs):
         """Initializes Socrata hook
 
         :param socrata_conn_id: Name of Airflow connection to use,

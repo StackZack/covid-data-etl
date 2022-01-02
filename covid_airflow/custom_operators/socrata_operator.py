@@ -1,5 +1,5 @@
 from airflow.models.baseoperator import BaseOperator
-from hooks.socrata_hook import SocrataHook
+from socrata_hook import SocrataHook
 from datetime import datetime
 import pandas as pd
 import os
@@ -27,11 +27,11 @@ class SocrataOperator(BaseOperator):
         pattern of '<data_id>_<timestamp>'
         :rtype: str
         """
-        socrata_instance = SocrataHook.get_conn()
+        socrata_instance = SocrataHook().get_conn()
         response_data = socrata_instance.get(self.data_id)
         df_data = pd.DataFrame.from_records(response_data)
         time_stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
-        file_name = "_".join(self.data_id, time_stamp) + '.csv'
+        file_name = "_".join([self.data_id, time_stamp]) + '.csv'
         file_path = os.path.join(self.file_dir, file_name)
         df_data.to_csv(file_path)
         return file_path
