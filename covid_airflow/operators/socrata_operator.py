@@ -20,12 +20,9 @@ class SocrataOperator(BaseOperator):
         self.file_dir = file_dir
         super().__init__(**kwargs)
 
-    def execute(self):
-        """Execute main method for Socrata operator
-
-        :return: file path of saved CSV file with
-        pattern of '<data_id>_<timestamp>'
-        :rtype: str
+    def execute(self, context):
+        """Execute main method for Socrata operator.
+        Performs xcom_push to key 'soc_file_path' with path to local CSV
         """
         socrata_instance = SocrataHook.get_conn()
         response_data = socrata_instance.get(self.data_id)
@@ -34,4 +31,4 @@ class SocrataOperator(BaseOperator):
         file_name = "_".join(self.data_id, time_stamp) + '.csv'
         file_path = os.path.join(self.file_dir, file_name)
         df_data.to_csv(file_path)
-        return file_path
+        self.xcom_push(context=context, key='soc_file_path', value=file_path)
