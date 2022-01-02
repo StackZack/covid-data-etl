@@ -2,7 +2,7 @@ from airflow.hooks.base_hook import BaseHook
 from sodapy import Socrata
 
 
-class SocrateHook(BaseHook):
+class SocrataHook(BaseHook):
     """Custom hook that returns a Socrata connection instance.
     Requires connection in Airflow with name of SOCRATA_CONN value.
     """
