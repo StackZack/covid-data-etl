@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from airflow import DAG
-from socrata_operator import SocrataOperator
+from custom_operators.socrata_operator import SocrataOperator
 
 
 with DAG(
