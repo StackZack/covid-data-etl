@@ -28,7 +28,9 @@ class SocrataOperator(BaseOperator):
         :rtype: str
         """
         socrata_instance = SocrataHook().get_conn()
-        response_data = socrata_instance.get(self.data_id)
+        response_data = []
+        for item in socrata_instance.get_all(self.data_id):
+            response_data.append(item)
         df_data = pd.DataFrame.from_records(response_data)
         time_stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
         file_name = "_".join([self.data_id, time_stamp]) + '.csv'
