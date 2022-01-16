@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from custom_operators.socrata_operator import SocrataOperator
-
+from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 with DAG(
     dag_id="covid_full_load",
@@ -18,7 +18,14 @@ with DAG(
         file_dir="/tmp"
     )
 
-    pull_full_covid_data
+    trunc_staging_table = PostgresOperator(
+        task_id="trunc_staging_table",
+        sql="""
+        TRUNCATE stg_full_covid;
+        """
+    )
+
+    pull_full_covid_data >> trunc_staging_table
 
 if __name__ == "__main__":
     dag.cli()
