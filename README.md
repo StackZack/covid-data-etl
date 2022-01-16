@@ -23,4 +23,10 @@ Apache Spark should be installed and configured locally to run any Spark related
 
 ## How To Run
 
+### Create Postgres Tables
+
+### Create Socrata Connection
+
+### Create Postgres Connection
+
 ## To-Do List
