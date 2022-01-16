@@ -19,14 +19,43 @@ Follow the instructions [located here](https://airflow.apache.org/docs/apache-ai
 
 ### **Spark**
 
-Apache Spark should be installed and configured locally to run any Spark related scripts.
+Apache Spark should be installed and configured locally to run Spark related scripts.
 
 ## How To Run
 
-### Create Postgres Tables
+### **Create Postgres Tables**
 
-### Create Socrata Connection
+Run the code within **sql/schema.sql** in your local Postgres database to create the required tables.
 
-### Create Postgres Connection
+### **Create Socrata Connection**
 
-## To-Do List
+Create a new connection in your Apache Airflow instance with the below values.
+
+|Metadata ID    |Value              |
+|---------------|-------------------|
+|Connection Id  |http_socrata       |
+|Connection Type|HTTP               |
+|Host           |data.cdc.gov       |
+|Login          |LOGIN_EMAIL_HERE   |
+|Extra          |APP_TOKEN_HERE     |
+
+The **APP_TOKEN_HERE** should be formatted like the below example
+
+```javascript
+{
+    "app_token": "VALUE_OF_TOKEN"
+}
+```
+
+### **Create Postgres Connection**
+
+Update metadata of _**postgres_default**_ airflow connection to point to local postgres instance. Assuming you used the PostgreSQL docker commands in this README, reference the below table for the appropriate values.
+
+|Metadata ID    |Value              |
+|---------------|-------------------|
+|Connection Id  |postgres_default   |
+|Connection Type|Postgres           |
+|Host           |localhost          |
+|Schema         |postgres           |
+|Login          |postgres           |
+|Port           |5432               |
