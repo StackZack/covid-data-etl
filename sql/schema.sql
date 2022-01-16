@@ -1,3 +1,4 @@
+-- create staging table for full load
 CREATE TABLE stg_full_covid (
 	id SERIAL PRIMARY KEY,
 	csv_row BIGINT,

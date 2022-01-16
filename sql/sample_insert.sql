@@ -1,0 +1,38 @@
+-- sample insert for testing
+INSERT INTO stg_full_covid (
+	csv_row,
+	data_as_of,
+	start_date,
+	end_date,
+	data_group,
+	us_state,
+	sex,
+	age_group,
+	covid_19_deaths,
+	total_deaths,
+	pneumonia_deaths,
+	pneumonia_and_covid_19_deaths,
+	influenza_deaths,
+	pneumonia_influenza_or_covid,
+	footnote,
+	case_year,
+	case_month
+) VALUES (
+	0,
+	'2022-01-12T00:00:00.000',
+	'2020-01-01T00:00:00.000',
+	'2022-01-08T00:00:00.000',
+	'By Total',
+	'United States',
+	'All Sexes',
+	'All Ages',
+	12345,
+	12345,
+	12345,
+	12345,
+	12345,
+	12345,
+	NULL,
+	NULL,
+	NULL
+);
