@@ -7,8 +7,9 @@ A repo containing a sample process to extract, transform, and load COVID related
 ### **PostgreSQL**
 
 ```bash
-docker pull postgres
-mkdir ~/postgresql-data
+brew install postgresql  # needed for running postgresql operators
+docker pull postgres  # pull image for running docker in container
+mkdir ~/postgresql-data  # make directory for persistent db storage
 docker run -d --name airflow-postgres -p 5432:5432 -v ${HOME}/postgres-data/:/var/lib/postgresql/data -e POSTGRES_PASSWORD=SUPER_SECRET_PASSWORD_HERE postgres
 ```
 
