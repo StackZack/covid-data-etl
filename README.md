@@ -60,6 +60,32 @@ Update metadata of the _**postgres_default**_ Apache Airflow connection to point
 |Host           |localhost          |
 |Schema         |postgres           |
 |Login          |postgres           |
+|Password       |PASSWORD_HERE      |
+|Port           |5432               |
+
+#### **Spark Standalone Connection in Airflow**
+
+Update metadata of the _**spark_default**_ Apache Airflow connection to point to local spark instance. The below values are based on a local standalone instance with the default ports in place.
+
+|Metadata ID    |Value              |
+|---------------|-------------------|
+|Connection Id  |spark_default      |
+|Connection Type|Spark              |
+|Host           |spark://localhost  |
+|Port           |7077               |
+
+#### **Spark JDBC Connection in Airflow**
+
+Create a new connection in your Apache Airflow instance with the below values. This assumes you used the PostgreSQL docker commands in this README.
+
+|Metadata ID    |Value              |
+|---------------|-------------------|
+|Connection Id  |jdbc_default       |
+|Connection Type|Spark JDBC         |
+|Host           |localhost          |
+|Schema         |postgres           |
+|Login          |postgres           |
+|Password       |PASSWORD_HERE      |
 |Port           |5432               |
 
 ## How To Run
