@@ -29,6 +29,16 @@ Run the code within **sql/schema.sql** in your local Postgres database to create
 
 Follow the instructions [located here](https://airflow.apache.org/docs/apache-airflow/stable/start/local.html) to set up Airflow to run locally.
 
+#### **Variables in Airflow**
+
+Add the below variables to your Apache Airflow instance for use in the custom dag.
+
+|Key            |Val                    |
+|---------------|-----------------------|
+|PYSPARK_HOME   |scripts/pyspark        |
+|JDBC_HOME      |jars/jdbc              |
+|JDBC_POSTGRES  |YOUR_POSTGRES_JAR_NAME |
+
 #### **Socrata Connection in Airflow**
 
 Create a new connection in your Apache Airflow instance with the below values.
