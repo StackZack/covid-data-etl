@@ -33,11 +33,11 @@ Follow the instructions [located here](https://airflow.apache.org/docs/apache-ai
 
 Add the below variables to your Apache Airflow instance for use in the custom dag.
 
-|Key            |Val                    |
-|---------------|-----------------------|
-|PYSPARK_HOME   |scripts/pyspark        |
-|JDBC_HOME      |jars/jdbc              |
-|JDBC_POSTGRES  |YOUR_POSTGRES_JAR_NAME |
+|Key            |Val                        |
+|---------------|---------------------------|
+|PYSPARK_HOME   |airflow/scripts/pyspark    |
+|JDBC_HOME      |airflow/jars/jdbc          |
+|JDBC_POSTGRES  |YOUR_POSTGRES_JAR_NAME     |
 
 #### **Socrata Connection in Airflow**
 
@@ -99,3 +99,10 @@ Create a new connection in your Apache Airflow instance with the below values. T
 |Port           |5432               |
 
 ## How To Run
+
+## To-Do List
+1. Update clean_covid_data spark script to split data and clean data as needed.
+2. Update SQL schema to split into a better data model.
+3. Add spark script(s) to load data into respective tables.
+4. Refactor Socrata operator accept optional connection parameter.
+5. Start dockerizing entire environment for ease of use.
