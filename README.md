@@ -35,8 +35,8 @@ Add the below variables to your Apache Airflow instance for use in the custom da
 
 |Key            |Val                        |
 |---------------|---------------------------|
-|PYSPARK_HOME   |airflow/scripts/pyspark    |
-|JDBC_HOME      |airflow/jars/jdbc          |
+|PYSPARK_HOME   |scripts/pyspark            |
+|JDBC_HOME      |jars/jdbc                  |
 |JDBC_POSTGRES  |YOUR_POSTGRES_JAR_NAME     |
 
 #### **Socrata Connection in Airflow**

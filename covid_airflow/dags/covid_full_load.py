@@ -2,7 +2,7 @@ import os
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.models.variable import Variable
-from custom_operators.socrata_operator import SocrataOperator
+from socrata_provider.operators.socrata import SocrataOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.apache.spark.operators.spark_submit import (
     SparkSubmitOperator

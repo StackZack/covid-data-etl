@@ -1,5 +1,5 @@
 from airflow.models.baseoperator import BaseOperator
-from custom_hooks.socrata_hook import SocrataHook
+from ..hooks.socrata import SocrataHook
 from datetime import datetime
 import pandas as pd
 import os
